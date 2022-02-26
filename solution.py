@@ -1,9 +1,6 @@
 import base64
 from socket import *
 
-
-
-
 def smtp_client(port=1025, mailserver='127.0.0.1'):
     msg = "\r\n My message"
     endmsg = "\r\n.\r\n"
@@ -52,16 +49,16 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
 
     # Send MAIL FROM command and handle server response.
     # Fill in start
-    mail_from = f"MAIL FROM: \r\n"
-    clientSocket.send(mail_from.encode())
+    # mail_from = f"MAIL FROM: \r\n"
+    # clientSocket.send(mail_from.encode())
     recv2 = clientSocket.recv(1024).decode()
     print(recv2)
     # Fill in end
 
     # Send RCPT TO command and handle server response.
     # Fill in start
-    rcpt_to = f"RCPT TO: \r\n"
-    clientSocket.send(rcpt_to.encode())
+    # rcpt_to = f"RCPT TO: \r\n"
+    # clientSocket.send(rcpt_to.encode())
     recv3 = clientSocket.recv(1024).decode
     print(recv3)
     # Fill in end
