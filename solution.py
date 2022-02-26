@@ -2,16 +2,18 @@ import base64
 from socket import *
 
 
+
+
 def smtp_client(port=1025, mailserver='127.0.0.1'):
     msg = "\r\n My message"
     endmsg = "\r\n.\r\n"
 
     # Choose a mail server (e.g. Google mail server) if you want to verify the script beyond GradeScope
-    mailserver = "smtp.gmail.com"
-    recipient = "hmw5970@nyu.edu"
-    sender = "jond27066@gmail.com"
-    username = "jond27066@gmail.com"
-    password = "Apple@123"
+    # mailserver = "smtp.gmail.com"
+    # recipient = "hmw5970@nyu.edu"
+    # sender = "jond27066@gmail.com"
+    # username = "jond27066@gmail.com"
+    # password = "Apple@123"
     # Create socket called clientSocket and establish a TCP connection with mailserver and port
 
     # Fill in start
@@ -33,24 +35,24 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     if recv1[:3] != '250':
         print('250 reply not received from server.')
 
-    authCommand = "AUTH LOGIN\r\n"
-    clientSocket.send(authCommand.encode())
-    authRecv = clientSocket.recv(1024).decode()
-    print(authRecv)
+    # authCommand = "AUTH LOGIN\r\n"
+    # clientSocket.send(authCommand.encode())
+    # authRecv = clientSocket.recv(1024).decode()
+    # print(authRecv)
 
-    uName = base64.b64encode(username)+"\r\n"
-    clientSocket.send(uName.encode())
-    uName_recv = clientSocket.recv(1024).decode()
-    print(uName_recv)
+    # uName = base64.b64encode(username)+"\r\n"
+    # clientSocket.send(uName.encode())
+    # uName_recv = clientSocket.recv(1024).decode()
+    # print(uName_recv)
 
-    pWord = base64.b64encode(password)+"\r\n"
-    clientSocket.send(pWord.encode())
-    pWord_recv = clientSocket.recv(1024).decode()
-    print(pWord_recv)   
+    # pWord = base64.b64encode(password)+"\r\n"
+    # clientSocket.send(pWord.encode())
+    # pWord_recv = clientSocket.recv(1024).decode()
+    # print(pWord_recv)   
 
     # Send MAIL FROM command and handle server response.
     # Fill in start
-    mail_from = f"MAIL FROM: {sender}\r\n"
+    mail_from = f"MAIL FROM: \r\n"
     clientSocket.send(mail_from.encode())
     recv2 = clientSocket.recv(1024).decode()
     print(recv2)
@@ -58,7 +60,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
 
     # Send RCPT TO command and handle server response.
     # Fill in start
-    rcpt_to = f"RCPT TO: {recipient}\r\n"
+    rcpt_to = f"RCPT TO: \r\n"
     clientSocket.send(rcpt_to.encode())
     recv3 = clientSocket.recv(1024).decode
     print(recv3)
